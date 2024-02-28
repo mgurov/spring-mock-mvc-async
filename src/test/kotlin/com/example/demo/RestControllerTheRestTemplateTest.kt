@@ -19,7 +19,7 @@ class RestControllerTheRestTemplateTest {
 
         val responseType = object: ParameterizedTypeReference<Map<String, String>>() {}
         val response = restTemplate.exchange(
-            "http://localhost:8080/" + RestControllerThe.Path.simple,
+            "http://localhost:8080/" + RestControllerThe.Path.simple + "?delaySecs=40",
             HttpMethod.GET,
             null,
             responseType

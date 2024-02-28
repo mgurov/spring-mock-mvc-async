@@ -1,5 +1,6 @@
 package com.example.demo
 
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RestController
@@ -18,9 +19,9 @@ class RestControllerThe {
     @GetMapping(Path.simple)
     fun simpleResponse(
         @ModelAttribute params: SimpleParams,
-    ): Map<String, String> {
+    ): ResponseEntity<Map<String, String>> {
         TimeUnit.SECONDS.sleep(params.delaySecs)
-        return mapOf("hello" to "world")
+        return ResponseEntity.ok(mapOf("hello" to "world"))
     }
 
     @GetMapping(Path.simpleAsync)
