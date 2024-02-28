@@ -22,4 +22,15 @@ class RestControllerTheSpringMvcTest(
                 }
             }
     }
+
+    @Test
+    fun `should get simple async response`() {
+        mockMvc.get(RestControllerThe.Path.simpleAsync, {})
+            .andExpect {
+                status { isOk() }
+                content {
+                    jsonPath("hello") {value("world")}
+                }
+            }
+    }
 }
